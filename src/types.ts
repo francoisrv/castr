@@ -3,6 +3,13 @@ export type CastrValue =
 | number
 | boolean
 
+export interface CastrStringOptions {
+  null?: string
+  undefined?: string
+  true?: string
+  false?: string
+}
+
 export interface CastrArrayOptions {
   delimiter?: string
   fill?: boolean
@@ -36,6 +43,9 @@ export enum type {
   array = 'array',
   boolean = 'boolean',
   date = 'date',
+  error = 'error',
+  function = 'function',
+  json = 'json',
   number = 'number',
   object = 'object',
   regexp = 'regexp',

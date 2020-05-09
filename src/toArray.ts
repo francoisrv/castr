@@ -17,7 +17,7 @@ export default function toArray<T extends any = string>(value: any, options: Cas
     }
     const array: T[] = []
     for (let i = 0; i < value; i++) {
-      array.push(undefined as T)
+      array.push(undefined)
     }
     return array
   }

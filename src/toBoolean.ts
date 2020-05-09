@@ -2,6 +2,9 @@ import { CastrBooleanOptions } from './types'
 import includes from 'lodash.includes'
 
 export default function toBoolean(value: any, options: CastrBooleanOptions = {}): boolean {
+  if (typeof value === 'undefined') {
+    return false
+  }
   const isTrue = [true, 'true', 1]
   if (options.true) {
     isTrue.push(...options.true)
