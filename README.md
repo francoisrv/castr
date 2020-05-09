@@ -13,7 +13,7 @@ View [cheat sheet](./cheatsheet.md)
 
 ## String
 
-Turn any value into a string
+Turn any value into a string ([cheat sheet](https://github.com/francoisrv/castr/blob/master/cheatsheet.md#tostring))
 
 ```js
 castr.toString('hello') // "hello"
@@ -21,9 +21,6 @@ castr.toString(22) // "22"
 castr.toString(true) // "true"
 castr.toString([{ b: 1 }]) // "[{"b":1}]"
 ```
-
-### Options
-
 ```ts
 function toString(value: any, options: Options = {}): string
 
