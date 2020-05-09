@@ -1,13 +1,4 @@
-castr
-===
 
-Cast value to any type
-
-```js
-import * as castr from 'castr'
-
-castr.toNumber('1') // 1
-```
 ## toArray
 
 ```js
@@ -43,6 +34,7 @@ castr.to(castr.type.array)(value, options)
 | "[]" | {} | ["[","]"] |
 | "{"foo": true}" | {} | ["{","\"","f","o","o","\"",":"," ","t","r","u","e","}"] |
 
+
 ## toBoolean
 
 ```js
@@ -73,6 +65,7 @@ castr.to(castr.type.boolean)(value, options)
 | "{"foo": true}" | {} | true |
 | "[]" | {} | true |
 | "{"foo": true}" | {} | true |
+
 
 ## toDate
 
@@ -105,6 +98,7 @@ castr.to(castr.type.date)(value, options)
 | "[]" | {} | new Date() |
 | "{"foo": true}" | {} | new Date() |
 
+
 ## toError
 
 ```js
@@ -135,6 +129,7 @@ castr.to(castr.type.error)(value, options)
 | "{"foo": true}" | {} | new Error("{"foo": true}") |
 | "[]" | {} | new Error("[]") |
 | "{"foo": true}" | {} | new Error("{"foo": true}") |
+
 
 ## toFunction
 
@@ -167,6 +162,7 @@ castr.to(castr.type.function)(value, options)
 | "[]" | {} | () => "[]" |
 | "{"foo": true}" | {} | () => "{"foo": true}" |
 
+
 ## toJSON
 
 ```js
@@ -197,6 +193,7 @@ castr.to(castr.type.json)(value, options)
 | "{"foo": true}" | {} | "{\"foo\": true}" |
 | "[]" | {} | "[]" |
 | "{"foo": true}" | {} | "{\"foo\": true}" |
+
 
 ## toNumber
 
@@ -236,6 +233,7 @@ castr.to(castr.type.number)(value, options)
 | "{"foo": true}" | {} | 13 |
 | "{"foo": true}" | {"count":false} | 0 |
 
+
 ## toObject
 
 ```js
@@ -266,6 +264,7 @@ castr.to(castr.type.object)(value, options)
 | "{"foo": true}" | {} | {"foo":true} |
 | "[]" | {} | [] |
 | "{"foo": true}" | {} | {"foo":true} |
+
 
 ## toRegExp
 
@@ -303,6 +302,7 @@ castr.to(castr.type.regexp)(value, options)
 | "[]" | {"escape":true} |  |
 | "{"foo": true}" | {} |  |
 | "{"foo": true}" | {"escape":true} |  |
+
 
 ## toString
 

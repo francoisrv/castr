@@ -2,7 +2,7 @@ import { type } from './types'
 import { strollers } from './castr.specs'
 import compact from 'lodash.compact'
 
-function markdown(t: type) {
+export default function markdown(t: type) {
   let f = ''
   if (t === type.array) {
     f = 'toArray'
@@ -56,16 +56,3 @@ castr.to(castr.type.${ t })(value, options)
 }
 `
 }
-
-console.log(
-  markdown(type.array),
-  markdown(type.boolean),
-  markdown(type.date),
-  markdown(type.error),
-  markdown(type.function),
-  markdown(type.json),
-  markdown(type.number),
-  markdown(type.object),
-  markdown(type.regexp),
-  markdown(type.string),
-)

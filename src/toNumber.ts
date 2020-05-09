@@ -13,12 +13,18 @@ export default function toNumber(value: any, options: CastrNumberOptions = {}): 
     return finalForm(notANumber)
   }
   if (typeof value === 'string') {
+    if (/^-?\.\d+(\.\d+)?$/.test(value)) {
+      return Number(value)
+    }
     if (isNaN(parsed)) {
       if (options.count === false) {
         return finalForm(notANumber)
       }
       return finalForm(value.length)
     } else {
+      if (options.count === false) {
+        return finalForm(notANumber)
+      }
       return finalForm(parsed)
     }
   }

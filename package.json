@@ -10,6 +10,7 @@
   "private": false,
   "dependencies": {
     "@types/lodash.includes": "^4.3.6",
+    "@types/node": "^13.13.5",
     "lodash.includes": "^4.3.0"
   },
   "devDependencies": {

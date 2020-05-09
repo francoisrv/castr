@@ -543,6 +543,13 @@
     jest-diff "^25.2.1"
     pretty-format "^25.2.1"
 
+"@types/lodash.compact@^3.0.6":
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/@types/lodash.compact/-/lodash.compact-3.0.6.tgz#a4c356372f51fb39ff48eb4f014a19f39f674ab5"
+  integrity sha512-0pDKTX4alTyxH85Y5Al4YzS8oriqBQykADW6zLAHkZwNBMPXFIhdE2ctg0Z2GVcZsABxo5CI/J3vmHrFkdQBfA==
+  dependencies:
+    "@types/lodash" "*"
+
 "@types/lodash.includes@^4.3.6":
   version "4.3.6"
   resolved "https://registry.yarnpkg.com/@types/lodash.includes/-/lodash.includes-4.3.6.tgz#47a806f9dd6ad5ebe35cfd46096db348420c3fb0"
@@ -555,7 +562,7 @@
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.150.tgz#649fe44684c3f1fcb6164d943c5a61977e8cf0bd"
   integrity sha512-kMNLM5JBcasgYscD9x/Gvr6lTAv2NVgsKtet/hm93qMyf/D1pt+7jeEZklKJKxMVmXjxbRVQQGfqDSfipYCO6w==
 
-"@types/node@*":
+"@types/node@*", "@types/node@^13.13.5":
   version "13.13.5"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-13.13.5.tgz#96ec3b0afafd64a4ccea9107b75bf8489f0e5765"
   integrity sha512-3ySmiBYJPqgjiHA7oEaIo2Rzz0HrOZ7yrNO5HWyaE5q0lQ3BppDZ3N53Miz8bw2I7gh1/zir2MGVZBvpb1zq9g==
@@ -2343,6 +2350,11 @@ locate-path@^5.0.0:
   integrity sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==
   dependencies:
     p-locate "^4.1.0"
+
+lodash.compact@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/lodash.compact/-/lodash.compact-3.0.1.tgz#540ce3837745975807471e16b4a2ba21e7256ca5"
+  integrity sha1-VAzjg3dFl1gHRx4WtKK6IeclbKU=
 
 lodash.includes@^4.3.0:
   version "4.3.0"

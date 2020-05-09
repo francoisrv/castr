@@ -9,7 +9,11 @@ export default function toObject(value: any): object {
   }
   if (typeof value === 'string') {
     try {
-      return JSON.parse(value)
+      const obj = JSON.parse(value)
+      if (typeof obj === 'object') {
+        return obj
+      }
+      return {}
     } catch (error) {
       return {}
     }

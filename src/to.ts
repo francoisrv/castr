@@ -20,7 +20,7 @@ export default function to<T extends any = any>(castr: type, value: any, options
     case type.error: return toError(value)
     case type.function: return toFunction(value)
     case type.json: return toJSON(value)
-    case type.number: return toNumber(value)
+    case type.number: return toNumber(value, options)
     case type.object: return toObject(value)
     case type.regexp: return toRegExp(value)
     case type.string: return toString(value, options)

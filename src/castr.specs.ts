@@ -477,7 +477,314 @@ export const strollers: Stroller[] = [
       [castr.type.string]: [
         { expect: 'a,b,c' }
       ],
-    }
+    },
+  },
+
+  {
+    value: 'a:b:c',
+    label: '"a:b:c"',
+    castrs: {
+      [castr.type.array]: [
+        { expect: ['a', ':', 'b', ':', 'c'] },
+        { expect: ['a', 'b', 'c'], options:{  delimiter: ':' } },
+      ],
+      [castr.type.boolean]: [
+        { expect: true }
+      ],
+      [castr.type.date]: [
+        { expectType: Date }
+      ],
+      [castr.type.error]: [
+        { expectType: Error, expectProperty: { message: 'a:b:c' } }
+      ],
+      [castr.type.function]: [
+        { expectCalled: 'a:b:c' }
+      ],
+      [castr.type.json]: [
+        { expect: 'a:b:c' }
+      ],
+      [castr.type.number]: [
+        { expect: 5 },
+        { options: { count: false }, expect: 0 }
+      ],
+      [castr.type.object]: [
+        { expect: {} }
+      ],
+      [castr.type.regexp]: [
+        { expectStringified: '/a:b:c/' },
+      ],
+      [castr.type.string]: [
+        { expect: 'a:b:c' }
+      ],
+    },
+  },
+
+  {
+    value: '-1',
+    label: '"-1"',
+    castrs: {
+      [castr.type.array]: [
+        { expect: ['-', '1'] },
+      ],
+      [castr.type.boolean]: [
+        { expect: true }
+      ],
+      [castr.type.date]: [
+        { expectType: Date }
+      ],
+      [castr.type.error]: [
+        { expectType: Error, expectProperty: { message: '-1' } }
+      ],
+      [castr.type.function]: [
+        { expectCalled: '-1' }
+      ],
+      [castr.type.json]: [
+        { expect: '-1' }
+      ],
+      [castr.type.number]: [
+        { expect: -1 },
+      ],
+      [castr.type.object]: [
+        { expect: {} }
+      ],
+      [castr.type.regexp]: [
+        { expectStringified: '/-1/' },
+      ],
+      [castr.type.string]: [
+        { expect: '-1' }
+      ],
+    },
+  },
+
+  {
+    value: '0',
+    label: '"0"',
+    castrs: {
+      [castr.type.array]: [
+        { expect: ['0'] },
+      ],
+      [castr.type.boolean]: [
+        { expect: true }
+      ],
+      [castr.type.date]: [
+        { expectType: Date }
+      ],
+      [castr.type.error]: [
+        { expectType: Error, expectProperty: { message: '0' } }
+      ],
+      [castr.type.function]: [
+        { expectCalled: '0' }
+      ],
+      [castr.type.json]: [
+        { expect: '0' }
+      ],
+      [castr.type.number]: [
+        { expect: 0 },
+      ],
+      [castr.type.object]: [
+        { expect: {} }
+      ],
+      [castr.type.regexp]: [
+        { expectStringified: '/0/' },
+      ],
+      [castr.type.string]: [
+        { expect: '0' }
+      ],
+    },
+  },
+
+  {
+    value: '1.5',
+    label: '"1.5"',
+    castrs: {
+      [castr.type.array]: [
+        { expect: ['1', '.', '5'] },
+      ],
+      [castr.type.boolean]: [
+        { expect: true }
+      ],
+      [castr.type.date]: [
+        { expectType: Date }
+      ],
+      [castr.type.error]: [
+        { expectType: Error, expectProperty: { message: '1.5' } }
+      ],
+      [castr.type.function]: [
+        { expectCalled: '1.5' }
+      ],
+      [castr.type.json]: [
+        { expect: '1.5' }
+      ],
+      [castr.type.number]: [
+        { expect: 1.5 },
+      ],
+      [castr.type.object]: [
+        { expect: {} }
+      ],
+      [castr.type.regexp]: [
+        { expectStringified: '/1.5/' },
+        { expectStringified: '/1\.5/', options: { escape: true } },
+      ],
+      [castr.type.string]: [
+        { expect: '1.5' }
+      ],
+    },
+  },
+
+  {
+    value: '{}',
+    label: '"{}"',
+    castrs: {
+      [castr.type.array]: [
+        { expect: ['{', '}'] },
+      ],
+      [castr.type.boolean]: [
+        { expect: true }
+      ],
+      [castr.type.date]: [
+        { expectType: Date }
+      ],
+      [castr.type.error]: [
+        { expectType: Error, expectProperty: { message: '{}' } }
+      ],
+      [castr.type.function]: [
+        { expectCalled: '{}' }
+      ],
+      [castr.type.json]: [
+        { expect: '{}' }
+      ],
+      [castr.type.number]: [
+        { expect: 2 },
+        { options: { count: false }, expect: 0 }
+      ],
+      [castr.type.object]: [
+        { expect: {} }
+      ],
+      [castr.type.regexp]: [
+        { expectStringified: '/{}/' },
+        { expectStringified: '/\{\}/', options: { escape: true } },
+      ],
+      [castr.type.string]: [
+        { expect: '{}' }
+      ],
+    },
+  },
+
+  {
+    value: '{"foo": true}',
+    label: '"{\"foo\": true}"',
+    castrs: {
+      [castr.type.array]: [
+        { expect: '{"foo": true}'.split('') },
+      ],
+      [castr.type.boolean]: [
+        { expect: true }
+      ],
+      [castr.type.date]: [
+        { expectType: Date }
+      ],
+      [castr.type.error]: [
+        { expectType: Error, expectProperty: { message: '{"foo": true}' } }
+      ],
+      [castr.type.function]: [
+        { expectCalled: '{"foo": true}' }
+      ],
+      [castr.type.json]: [
+        { expect: '{"foo": true}' }
+      ],
+      [castr.type.number]: [
+        { expect: 13 },
+        { options: { count: false }, expect: 0 }
+      ],
+      [castr.type.object]: [
+        { expect: {"foo": true} }
+      ],
+      [castr.type.regexp]: [
+        { expectStringified: '/{"foo": true}/' },
+        { expectStringified: '/\{"foo": true\}/', options: { escape: true } },
+      ],
+      [castr.type.string]: [
+        { expect: '{"foo": true}' }
+      ],
+    },
+  },
+
+  {
+    value: '[]',
+    label: '"[]"',
+    castrs: {
+      [castr.type.array]: [
+        { expect: '[]'.split('') },
+      ],
+      [castr.type.boolean]: [
+        { expect: true }
+      ],
+      [castr.type.date]: [
+        { expectType: Date }
+      ],
+      [castr.type.error]: [
+        { expectType: Error, expectProperty: { message: '[]' } }
+      ],
+      [castr.type.function]: [
+        { expectCalled: '[]' }
+      ],
+      [castr.type.json]: [
+        { expect: '[]' }
+      ],
+      [castr.type.number]: [
+        { expect: 2 },
+        { options: { count: false }, expect: 0 }
+      ],
+      [castr.type.object]: [
+        { expect: [] }
+      ],
+      [castr.type.regexp]: [
+        { expectStringified: '/[]/' },
+        { expectStringified: '/\[\]/', options: { escape: true } },
+      ],
+      [castr.type.string]: [
+        { expect: '[]' }
+      ],
+    },
+  },
+
+  {
+    value: '{"foo": true}',
+    label: '"{\"foo\": true}"',
+    castrs: {
+      [castr.type.array]: [
+        { expect: '{"foo": true}'.split('') },
+      ],
+      [castr.type.boolean]: [
+        { expect: true }
+      ],
+      [castr.type.date]: [
+        { expectType: Date }
+      ],
+      [castr.type.error]: [
+        { expectType: Error, expectProperty: { message: '{"foo": true}' } }
+      ],
+      [castr.type.function]: [
+        { expectCalled: '{"foo": true}' }
+      ],
+      [castr.type.json]: [
+        { expect: '{"foo": true}' }
+      ],
+      [castr.type.number]: [
+        { expect: 13 },
+        { options: { count: false }, expect: 0 }
+      ],
+      [castr.type.object]: [
+        { expect: {"foo": true} }
+      ],
+      [castr.type.regexp]: [
+        { expectStringified: '/{"foo": true}/' },
+        { expectStringified: '/\{"foo": true\}/', options: { escape: true } },
+      ],
+      [castr.type.string]: [
+        { expect: '{"foo": true}' }
+      ],
+    },
   }
 ]
 // .filter(stroller => stroller.label === 'undefined')
