@@ -97,3 +97,58 @@ You can force the array to be stringified as JSON:
 castr.toString([1, 2, 3], { parse: true }) // "[1,2,3]"
 castr.toString([], { parse: true }) // "[]"
 ```
+
+## Number
+
+Turn any value into a number ([cheat sheet](https://github.com/francoisrv/castr/blob/master/cheatsheet.md#tonumber))
+
+```js
+castr.toNumber(22) // 22
+```
+```ts
+function toNumber(value: any, options: Options = {}): string
+
+interface Options {
+  Infinity?: number
+  NaN?: number
+  count?: boolean
+}
+```
+
+### Cases
+
+In case the value can not be casted to a number, it will return `0` unless specified otherwise
+
+```ts
+castr.toNumber(null) // 0
+castr.toNumber(null, { NaN: -1 }) // -1
+castr.toNumber(Infinity, { Infinity: -1 }) // -1
+```
+
+If the value is a numeric string, it will be casted to a number
+
+```ts
+castr.toNumber('-1.5') // -1.5
+```
+
+Booleans value are represented as numbers:
+
+```ts
+castr.toNumber(true) // 1
+castr.toNumber(false) // 0
+```
+
+Cast will return lenght if possible:
+
+```ts
+castr.toNumber('abc') // 3
+castr.toNumber([1, 2, 3]) // 3
+castr.toNumber({ foo: 1, bar: 2 }) // 2
+```
+
+Use `count` to overwite this
+
+```ts
+castr.toNumber('abc', { count: false }) // 0
+```
+
