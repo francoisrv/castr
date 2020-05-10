@@ -17,17 +17,69 @@ Turn any value into a string ([cheat sheet](https://github.com/francoisrv/castr/
 
 ```js
 castr.toString('hello') // "hello"
-castr.toString(22) // "22"
-castr.toString(true) // "true"
-castr.toString([{ b: 1 }]) // "[{"b":1}]"
 ```
 ```ts
 function toString(value: any, options: Options = {}): string
 
 interface Options {
-  false?: string        // if value is false, will use this string (default "false")
-  null?: string         // if value is null, will use this string (default "null")
-  true?: string         // if value is true, will use this string (default "true")
-  undefined?: string    // if value is undefined, will use this string (default "undefined")
+  false?: string
+  null?: string
+  parse?: boolean
+  true?: string
+  undefined?: string
 }
+```
+
+### Cases
+
+If you pass a number, it will be converted to a string:
+
+```ts
+castr.toString(-42.5) // "-42.5"
+```
+
+`undefined` or `null` are translated into empty strings:
+
+```ts
+castr.toString(undefined) // ""
+castr.toString(null) // ""
+```
+
+You can overwrite this by passing a custom string:
+
+```ts
+castr.toString(undefined, { undefined: 'missing' }) // "missing"
+castr.toString(null, { null: 'ignored' }) // "ignored"
+```
+
+Booleans are stringified like this:
+
+```ts
+castr.toString(true) // "true"
+castr.toString(false) // "false"
+```
+
+You can also owerwrite this:
+
+```ts
+castr.toString(true, { true: 'yes' }) // "yes"
+castr.toString(false, { false: 'no' }) // "no"
+```
+
+If you pass a plain object as a JSON string, it will be parsed:
+
+```ts
+castr.toString({ foo: 1 }) // "{\"foo\": 1}"
+```
+
+You can also overwrite this:
+
+```ts
+castr.toString({ foo: 1 }, { parse: false }) // "[object Object]"
+```
+
+In case you pass an instantiated class, the method `toString` will be called on it:
+
+```ts
+castr.toString(new Error('foo')) // "Error: foo"
 ```

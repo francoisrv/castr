@@ -17,12 +17,14 @@ export default function toArray<T extends any = string>(value: any, options: Cas
     }
     const array: T[] = []
     for (let i = 0; i < value; i++) {
+      // @ts-ignore
       array.push(undefined)
     }
     return array
   }
   if (typeof value === 'string') {
     if (options.delimiter) {
+      // @ts-ignore
       const array = value.split(options.delimiter) as T[]
       if (options.castr) {
         return array.map(i => {
@@ -37,10 +39,12 @@ export default function toArray<T extends any = string>(value: any, options: Cas
       }
       return array
     }
+    // @ts-ignore
     return value.split('') as T[]
   }
   if (typeof value === 'object') {
     if (options.keys) {
+      // @ts-ignore
       return Object.keys(value) as T[]
     }
     const array: T[] = []

@@ -45,6 +45,7 @@ castr.to(castr.type.${ t })(value, options)
         compact([
           ('expect' in spec) && JSON.stringify(spec.expect),
           ('expectType' in spec) && spec.expectType === Date && `new Date()`,
+          // @ts-ignore
           ('expectType' in spec) && spec.expectType === Error && `new Error("${ spec.expectProperty.message }")`,
           ('expectCalled' in spec) && `() => ${ stroller.label }`
         ]).join(' ')

@@ -5,6 +5,7 @@ for (const stroller of strollers) {
   describe(stroller.label, () => {
     for (const type in stroller.castrs) {
       describe(type, () => {
+        // @ts-ignore
         for (const spec of stroller.castrs[type]) {
           const labels = [stroller.label]
           if ('options' in spec) {
@@ -34,6 +35,7 @@ for (const stroller of strollers) {
             })}`)
           }
           it(labels.join(' '), () => {
+            // @ts-ignore
             const casted = castr.to(type, stroller.value, spec.options)
             if ('expect' in spec) {
               expect(casted).toEqual(spec.expect)
@@ -51,10 +53,11 @@ for (const stroller of strollers) {
               }
             }
             if ('expectStringified' in spec) {
-              const incastr = castr.to(castr.type.string, casted)
+              const incastr = castr.toString(casted)
               expect(incastr).toEqual(spec.expectStringified)
             }
             if('expectCalled' in spec) {
+              // @ts-ignore
               const r = casted()
               expect(r).toEqual(spec.expectCalled)
             }

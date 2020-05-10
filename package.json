@@ -1,6 +1,6 @@
 {
   "name": "castr",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Cast value to any type (js)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,6 +8,9 @@
   "author": "pierre drouillet",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "prepublishOnly": "rm -rf dist && tsc"
+  },
   "dependencies": {
     "@types/lodash.includes": "^4.3.6",
     "@types/node": "^13.13.5",
