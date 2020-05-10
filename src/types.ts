@@ -8,6 +8,7 @@ export interface CastrStringOptions {
   undefined?: string
   true?: string
   false?: string
+  parse?: boolean
 }
 
 export interface CastrArrayOptions {

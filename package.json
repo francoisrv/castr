@@ -9,7 +9,8 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "prepublishOnly": "rm -rf dist && tsc"
+    "prepublishOnly": "rm -rf dist && tsc",
+    "test": "jest dist"
   },
   "dependencies": {
     "@types/lodash.includes": "^4.3.6",

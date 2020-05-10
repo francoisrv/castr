@@ -83,3 +83,17 @@ In case you pass an instantiated class, the method `toString` will be called on 
 ```ts
 castr.toString(new Error('foo')) // "Error: foo"
 ```
+
+Arrays are joined with a comma:
+
+```ts
+castr.toString([1, 2, 3]) // "1,2,3"
+castr.toString([]) // ""
+```
+
+You can force the array to be stringified as JSON:
+
+```ts
+castr.toString([1, 2, 3], { parse: true }) // "[1,2,3]"
+castr.toString([], { parse: true }) // "[]"
+```

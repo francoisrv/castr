@@ -1,3 +1,5 @@
+import toString from "./toString"
+
 export default function toError(value: any): Error {
   if (
     typeof value === 'undefined' ||
@@ -6,5 +8,5 @@ export default function toError(value: any): Error {
   ) {
     return new Error()
   }
-  return new Error(value)
+  return new Error(toString(value))
 }

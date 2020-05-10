@@ -18,6 +18,7 @@ interface Stroller {
 }
 
 export const strollers: Stroller[] = [
+  // undefined
   {
     value: undefined,
     label: 'undefined',
@@ -58,6 +59,7 @@ export const strollers: Stroller[] = [
     }
   },
 
+  // null
   {
     value: null,
     label: 'null',
@@ -98,6 +100,7 @@ export const strollers: Stroller[] = [
     }
   },
 
+  // true
   {
     value: true,
     label: 'true',
@@ -138,6 +141,7 @@ export const strollers: Stroller[] = [
     }
   },
 
+  // false
   {
     value: false,
     label: 'false',
@@ -178,6 +182,7 @@ export const strollers: Stroller[] = [
     }
   },
 
+  // -1
   {
     value: -1,
     label: '-1',
@@ -215,6 +220,7 @@ export const strollers: Stroller[] = [
     }
   },
 
+  // -1.5
   {
     value: -1.5,
     label: '-1.5',
@@ -252,6 +258,7 @@ export const strollers: Stroller[] = [
     }
   },
 
+  // 0
   {
     value: 0,
     label: '0',
@@ -289,6 +296,7 @@ export const strollers: Stroller[] = [
     }
   },
 
+  // 1
   {
     value: 1,
     label: '1',
@@ -327,6 +335,7 @@ export const strollers: Stroller[] = [
     }
   },
 
+  // 2.292929192929392
   {
     value: 2.292929192929392,
     label: '2.292929192929392',
@@ -366,6 +375,7 @@ export const strollers: Stroller[] = [
     }
   },
 
+  // ""
   {
     value: '',
     label: '""',
@@ -403,6 +413,7 @@ export const strollers: Stroller[] = [
     }
   },
 
+  // "hey"
   {
     value: 'hey',
     label: '"hey"',
@@ -441,6 +452,7 @@ export const strollers: Stroller[] = [
     }
   },
 
+  // "a,b,c"
   {
     value: 'a,b,c',
     label: '"a,b,c"',
@@ -480,45 +492,7 @@ export const strollers: Stroller[] = [
     },
   },
 
-  {
-    value: 'a:b:c',
-    label: '"a:b:c"',
-    castrs: {
-      [castr.type.array]: [
-        { expect: ['a', ':', 'b', ':', 'c'] },
-        { expect: ['a', 'b', 'c'], options:{  delimiter: ':' } },
-      ],
-      [castr.type.boolean]: [
-        { expect: true }
-      ],
-      [castr.type.date]: [
-        { expectType: Date }
-      ],
-      [castr.type.error]: [
-        { expectType: Error, expectProperty: { message: 'a:b:c' } }
-      ],
-      [castr.type.function]: [
-        { expectCalled: 'a:b:c' }
-      ],
-      [castr.type.json]: [
-        { expect: 'a:b:c' }
-      ],
-      [castr.type.number]: [
-        { expect: 5 },
-        { options: { count: false }, expect: 0 }
-      ],
-      [castr.type.object]: [
-        { expect: {} }
-      ],
-      [castr.type.regexp]: [
-        { expectStringified: '/a:b:c/' },
-      ],
-      [castr.type.string]: [
-        { expect: 'a:b:c' }
-      ],
-    },
-  },
-
+  // "-1"
   {
     value: '-1',
     label: '"-1"',
@@ -556,6 +530,7 @@ export const strollers: Stroller[] = [
     },
   },
 
+  // "0"
   {
     value: '0',
     label: '"0"',
@@ -593,6 +568,7 @@ export const strollers: Stroller[] = [
     },
   },
 
+  // "1.5"
   {
     value: '1.5',
     label: '"1.5"',
@@ -631,6 +607,7 @@ export const strollers: Stroller[] = [
     },
   },
 
+  // "{}"
   {
     value: '{}',
     label: '"{}"',
@@ -670,6 +647,7 @@ export const strollers: Stroller[] = [
     },
   },
 
+  // "{\"foo\": true}"
   {
     value: '{"foo": true}',
     label: '"{\"foo\": true}"',
@@ -709,6 +687,7 @@ export const strollers: Stroller[] = [
     },
   },
 
+  // "[]"
   {
     value: '[]',
     label: '"[]"',
@@ -748,12 +727,13 @@ export const strollers: Stroller[] = [
     },
   },
 
+  // {}
   {
-    value: '{"foo": true}',
-    label: '"{\"foo\": true}"',
+    value: {},
+    label: '{}',
     castrs: {
       [castr.type.array]: [
-        { expect: '{"foo": true}'.split('') },
+        { expect: [] },
       ],
       [castr.type.boolean]: [
         { expect: true }
@@ -762,29 +742,111 @@ export const strollers: Stroller[] = [
         { expectType: Date }
       ],
       [castr.type.error]: [
-        { expectType: Error, expectProperty: { message: '{"foo": true}' } }
+        { expectType: Error, expectProperty: { message: '{}' } }
       ],
       [castr.type.function]: [
-        { expectCalled: '{"foo": true}' }
+        { expectCalled: {} }
       ],
       [castr.type.json]: [
-        { expect: '{"foo": true}' }
+        { expect: {} }
       ],
       [castr.type.number]: [
-        { expect: 13 },
+        { expect: 0 },
         { options: { count: false }, expect: 0 }
       ],
       [castr.type.object]: [
-        { expect: {"foo": true} }
+        { expect: {} }
       ],
       [castr.type.regexp]: [
-        { expectStringified: '/{"foo": true}/' },
-        { expectStringified: '/\{"foo": true\}/', options: { escape: true } },
+        { expectStringified: '/{}/' },
+        { expectStringified: '/\{\}/', options: { escape: true } },
       ],
       [castr.type.string]: [
-        { expect: '{"foo": true}' }
+        { expect: '{}' },
+        { options: { parse: false }, expect: '[object Object]'}
       ],
     },
-  }
+  },
+
+  // []
+  {
+    value: [],
+    label: '[]',
+    castrs: {
+      [castr.type.array]: [
+        { expect: [] },
+      ],
+      [castr.type.boolean]: [
+        { expect: true }
+      ],
+      [castr.type.date]: [
+        { expectType: Date }
+      ],
+      [castr.type.error]: [
+        { expectType: Error, expectProperty: { message: '' } }
+      ],
+      [castr.type.function]: [
+        { expectCalled: [] }
+      ],
+      [castr.type.json]: [
+        { expect: [] }
+      ],
+      [castr.type.number]: [
+        { expect: 0 },
+        { options: { count: false }, expect: 0 }
+      ],
+      [castr.type.object]: [
+        { expect: {} }
+      ],
+      [castr.type.regexp]: [
+        { expectStringified: '/.*/' },
+      ],
+      [castr.type.string]: [
+        { expect: '' },
+        { options: { parse: true }, expect: '[]'}
+      ],
+    },
+  },
+
+  // new Error('foo')
+  // {
+  //   value: new Error('foo'),
+  //   label: 'new Error("foo")',
+  //   castrs: {
+  //     [castr.type.array]: [
+  //       { expect: [] },
+  //     ],
+  //     [castr.type.boolean]: [
+  //       { expect: true }
+  //     ],
+  //     [castr.type.date]: [
+  //       { expectType: Date }
+  //     ],
+  //     [castr.type.error]: [
+  //       { expectType: Error, expectProperty: { message: 'Error: foo' } }
+  //     ],
+  //     [castr.type.function]: [
+  //       { expectCalled: {} }
+  //     ],
+  //     [castr.type.json]: [
+  //       { expect: {} }
+  //     ],
+  //     [castr.type.number]: [
+  //       { expect: 0 },
+  //       { options: { count: false }, expect: 0 }
+  //     ],
+  //     [castr.type.object]: [
+  //       { expect: {} }
+  //     ],
+  //     [castr.type.regexp]: [
+  //       { expectStringified: '/{}/' },
+  //       { expectStringified: '/\{\}/', options: { escape: true } },
+  //     ],
+  //     [castr.type.string]: [
+  //       { expect: '{}' },
+  //       { options: { parse: false }, expect: '[object Object]'}
+  //     ],
+  //   },
+  // }
 ]
 // .filter(stroller => stroller.label === 'undefined')

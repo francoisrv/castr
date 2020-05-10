@@ -1,5 +1,6 @@
 import { CastrRegExpOptions } from './types'
 import { escapeRegExp } from 'lodash'
+import toString from './toString'
 
 export default function toRegExp(value: RegExp | string, options: CastrRegExpOptions = {}): RegExp {
   const defaultRegexp = /.*/
@@ -14,8 +15,9 @@ export default function toRegExp(value: RegExp | string, options: CastrRegExpOpt
   ) {
     return defaultRegexp
   }
-  if (options.escape) {
-    return new RegExp(escapeRegExp(value), options.flags)
+  const v = toString(value) || defaultRegexp
+  if (options.escape && typeof v === 'string') {
+    return new RegExp(escapeRegExp(v), options.flags)
   }
-  return new RegExp(value, options.flags)
+  return new RegExp(v, options.flags)
 }

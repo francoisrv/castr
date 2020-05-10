@@ -16,8 +16,18 @@ export default function toString(value: any, options: CastrStringOptions = {}): 
   if (value instanceof RegExp){
     return value.toString()
   }
-  if (typeof value === 'object') {
+  if (Array.isArray(value) && options.parse) {
     return JSON.stringify(value)
+  }
+  if (typeof value === 'object') {
+    const str = value.toString()
+    if (str === '[object Object]') {
+      if (options.parse === false) {
+        return str
+      }
+      return JSON.stringify(value)
+    }
+    return str
   }
   return value.toString()
 }
