@@ -18,5 +18,8 @@ export default function toObject(value: any): object {
       return {}
     }
   }
+  if (typeof value === 'object' && !Array.isArray(value)) {
+    return value
+  }
   return {}
 }

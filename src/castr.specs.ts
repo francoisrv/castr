@@ -768,6 +768,48 @@ export const strollers: Stroller[] = [
     },
   },
 
+  // { foo: true }
+  {
+    value: { foo: true },
+    label: '{ "foo": true }',
+    castrs: {
+      [castr.type.array]: [
+        { expect: [true] },
+        { expect: ['foo'], options: { keys: true } },
+      ],
+      [castr.type.boolean]: [
+        { expect: true }
+      ],
+      [castr.type.date]: [
+        { expectType: Date }
+      ],
+      [castr.type.error]: [
+        { expectType: Error, expectProperty: { message: '{"foo":true}' } }
+      ],
+      [castr.type.function]: [
+        { expectCalled: { foo: true } }
+      ],
+      [castr.type.json]: [
+        { expect: { foo: true } }
+      ],
+      [castr.type.number]: [
+        { expect: 1 },
+        { options: { count: false }, expect: 0 }
+      ],
+      [castr.type.object]: [
+        { expect: { foo: true } }
+      ],
+      [castr.type.regexp]: [
+        { expectStringified: '/{"foo":true}/' },
+        { expectStringified: '/\{"foo":true\}/', options: { escape: true } },
+      ],
+      [castr.type.string]: [
+        { expect: '{"foo":true}' },
+        { options: { parse: false }, expect: '[object Object]'}
+      ],
+    },
+  },
+
   // []
   {
     value: [],
@@ -849,4 +891,4 @@ export const strollers: Stroller[] = [
   //   },
   // }
 ]
-// .filter(stroller => stroller.label === 'undefined')
+// .filter(stroller => stroller.label === '[]')

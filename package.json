@@ -1,6 +1,6 @@
 {
   "name": "castr",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "Cast value to any type (js)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,7 +9,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "prepublishOnly": "rm -rf dist && tsc",
+    "prepublishOnly": "rm -rf dist && tsc && npm t",
     "test": "jest dist"
   },
   "dependencies": {
